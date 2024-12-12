@@ -8,40 +8,25 @@
   </head>
   <body>
     <h2><a href="../">Back</a></h2>
-    <h1 align="center" class="mainheading">Registration Foam</h1>
+    <h1 align="center">Registration Foam</h1>
 
     <form action="" align="center">
-      <label for="">Name</label>
-      <input
-        class="inputbox"
-        type="text"
-        placeholder="Enter Your Name"
-        required
-      />
+      <label for="name">Name</label>
+      <input id="name" type="text" placeholder="Enter Your Name" required />
       <br />
       <br />
-      <label for="">Email</label>
-      <input
-        class="inputbox"
-        type="email"
-        placeholder="Enter Your Email"
-        required
-      />
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Enter Your Email" required />
       <br />
       <br />
-      <label for="">Age</label>
-      <input
-        class="inputbox"
-        type="number"
-        placeholder="Enter Your Age"
-        required
-      />
+      <label for="age">Age</label>
+      <input id="age" type="number" placeholder="Enter Your Age" required />
       <br />
       <br />
-      <label for="" class="secheading">Which Option Best Describes You ?</label>
+      <label for="select">Which Option Best Describes You ?</label>
       <br />
       <br />
-      <select class="inputbox">
+      <select id="select">
         <option value="Student">Student</option>
         <option value="Student">dhuakna</option>
         <option value="Student">flatu</option>
@@ -49,51 +34,39 @@
       </select>
       <br />
       <br />
-      <label for="" class="secheading"
-        >Can you tell me who should I make friends ?</label
+      <label for="">Can you tell me who should I make friends ?</label>
+      <br />
+      <br />
+      <label for="yes"><input id="yes" type="radio" name="tell" />Yes</label>
+      <br />
+      <label for="no"><input id="no" type="radio" name="tell" />No</label>
+      <br />
+      <label for="maybe"
+        ><input id="maybe" type="radio" name="tell" />Maybe</label
       >
       <br />
       <br />
-      <label for="" class="radio"
-        ><input type="radio" value="Yes" name="tell" />Yes</label
+      <label for="">Which Languages Have You Learned ?</label>
+      <br />
+      <br />
+      <label for="css"><input id="css" type="checkbox" />CSS</label>
+      <br />
+      <label for="html"><input id="html" type="checkbox" />HTML</label>
+      <br />
+      <label for="javascript"
+        ><input id="javascript" type="checkbox" />JavaScript</label
       >
       <br />
-      <label for="" class="radio"
-        ><input type="radio" value="No" name="tell" />No</label
-      >
-      <br />
-      <label for="" class="radio"
-        ><input type="radio" value="No" name="tell" />Maybe</label
-      >
+      <label for="python"><input id="python" type="checkbox" />Python</label>
       <br />
       <br />
-      <label for="" class="secheading"
-        >Which Languages Have You Learned ?</label
-      >
+      <label for="textarea">Any comment or suggestions</label>
       <br />
       <br />
-      <label for="" class="radio"><input type="checkbox" />CSS</label>
-      <br />
-      <label for="" class="radio"><input type="checkbox" />HTML</label>
-      <br />
-      <label for="" class="radio"><input type="checkbox" />JavaScript</label>
-      <br />
-      <label for="" class="radio"><input type="checkbox" />Python</label>
+      <textarea id="textarea" cols="50" rows="5"></textarea>
       <br />
       <br />
-      <label for="" class="secheading">Any comment or suggestions</label>
-      <br />
-      <br />
-      <textarea
-        class="comment"
-        name="comment"
-        id="comment"
-        cols="50"
-        rows="5"
-      ></textarea>
-      <br />
-      <br />
-      <input class="submit" type="submit" id="submit" />
+      <input type="submit" />
     </form>
   </body>
 </html>
