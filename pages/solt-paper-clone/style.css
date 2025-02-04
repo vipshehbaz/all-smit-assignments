@@ -13,7 +13,7 @@
 }
 
 nav {
-  width: 100vw;
+  width: calc(100vw - 17px);
   height: 92px;
   background: #000;
 }
@@ -34,12 +34,28 @@ nav {
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
+  padding: 10px;
 }
 
 .logo img {
   width: 200px;
 }
 
-.bordered{
-    border: 1px solid white;
+.bordered {
+  border: 1px solid white;
+  border-radius: 20px;
+  font-size: 14px !important;
+  padding: 12px !important;
+}
+
+.btn {
+  background-color: red;
+  border-radius: 20px;
+  font-size: 14px !important;
+  padding: 12px !important;
+}
+
+main img {
+  width: calc(100vw - 17px);
+  height: calc(100vh - 96px);
 }
