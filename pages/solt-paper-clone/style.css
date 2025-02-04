@@ -61,6 +61,18 @@ nav {
   padding: 12px !important;
 }
 
+.btn span {
+  padding: 6px 8px;
+  border-radius: 999px;
+  margin-left: 5px;
+  background-color: white;
+}
+
+.btn span i {
+  background-color: white;
+  color: red;
+}
+
 main img {
   width: calc(100vw - 17px);
   height: calc(100vh - 96px);
