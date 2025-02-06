@@ -13,6 +13,7 @@
   max-width: 1380px;
   margin: auto;
   background-color: transparent;
+  width: 90%;
 }
 
 nav {
@@ -76,7 +77,6 @@ nav {
 
 main img {
   width: calc(100vw - 17px);
-  height: calc(100vh - 96px);
 }
 
 .brands {
@@ -87,7 +87,6 @@ h2 {
   font-weight: 400;
   font-size: 40px;
   line-height: 50px;
-  width: 50%;
   margin: auto;
   text-align: center;
   margin-bottom: 8px;
@@ -116,6 +115,11 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
+  scrollbar-width: none;
+  z-index: 2;
   gap: 30px;
 }
 
@@ -242,4 +246,100 @@ footer > p {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.25px;
+}
+
+.mobile{
+  display: none;
+}
+
+.desktop{
+  display: flex;
+}
+
+@media screen and (max-width: 1018px) {
+
+  nav {
+    height: 60px;
+  }
+
+  .nav-items-wrapper {
+    display: none;
+  }
+
+  .nav-inner {
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo img {
+    width: 100px;
+  }
+
+  main > img{
+    width: 100%;
+  }
+
+  .franchises-container {
+    flex-direction: column;
+  }
+
+  .franchise-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .franchise-info > h2{
+    text-align: center;
+  }
+
+  .franchise-contact-info{
+    align-items: center;
+  }
+
+  .franchise-contact-info > p{
+    text-align: center;
+  }
+
+  .franchise-contact-info > button{
+    margin-top: 14px;
+  }
+
+  .franchise-image {
+    width: 100%;
+  }
+
+  h2 > span,
+  h2 {
+    font-size: 24px !important;
+    line-height: 29px;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .restaurant-franchises{
+    padding: 35px 0px;
+  }
+
+  .franchise-info >p{
+    margin-bottom: 12px;
+  }
+
+  .franchise-info >h2{
+    margin-bottom: 24px;
+  }
+
+  .desktop{
+    display: none;
+  }
+
+  .mobile{
+    display: flex;
+  }
 }
