@@ -10,8 +10,9 @@
 }
 
 .wrapper {
-  width: 1200px;
+  max-width: 1380px;
   margin: auto;
+  background-color: transparent;
 }
 
 nav {
@@ -61,14 +62,14 @@ nav {
   padding: 12px !important;
 }
 
-.btn span {
+.arrow-icon {
   padding: 6px 8px;
   border-radius: 999px;
   margin-left: 5px;
   background-color: white;
 }
 
-.btn span i {
+.arrow-icon i {
   background-color: white;
   color: red;
 }
@@ -82,7 +83,7 @@ main img {
   padding: 70px 0px;
 }
 
-.brands > h2 {
+h2 {
   font-weight: 400;
   font-size: 40px;
   line-height: 50px;
@@ -90,15 +91,17 @@ main img {
   margin: auto;
   text-align: center;
   margin-bottom: 8px;
+  background: transparent;
 }
 
-.brands > h2 > span {
+h2 > span {
   font-family: "Saira Stencil One", serif;
   font-size: 52px;
   line-height: 62px;
+  background-color: transparent;
 }
 
-.brands > p {
+p {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
@@ -106,6 +109,7 @@ main img {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 48px;
   text-align: center;
+  background-color: transparent;
 }
 
 .cards-container {
@@ -129,7 +133,7 @@ main img {
   border-radius: 3px;
 }
 
-.cards-container > div > button {
+div > button {
   width: 174px;
   height: 50px;
   font-weight: 500;
@@ -138,4 +142,104 @@ main img {
   margin: auto;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
+}
+
+.restaurant-franchises {
+  background-color: rgba(255, 255, 255, 0.06);
+  padding: 70px;
+  position: relative;
+}
+
+.franchises-container {
+  display: flex;
+  gap: 30px;
+  background-color: transparent;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.restaurant-franchises > h2 {
+  position: absolute;
+  top: 300px;
+  right: 0px;
+  text-align: right;
+  z-index: 1;
+}
+
+.restaurant-franchises > h2 > span {
+  font-size: 800px;
+  opacity: 0.05;
+  display: block;
+}
+
+.franchise-info {
+  background-color: transparent;
+  width: 50%;
+}
+
+.franchise-info > p {
+  margin: 0;
+  text-align: left;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #ed1c24;
+  letter-spacing: 0.48em;
+}
+
+.franchise-info > h2 {
+  width: 100%;
+  text-align: left;
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+
+.franchise-info > h2 > span {
+  font-size: 32px;
+}
+
+.franchise-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: transparent;
+}
+
+.franchise-contact-info > p {
+  text-align: left;
+  margin: 0;
+}
+
+.franchise-contact-info > button {
+  margin: 0;
+  margin-top: 38px;
+  background-color: transparent;
+}
+
+.franchise-image {
+  background-color: transparent;
+  width: 50%;
+}
+
+.franchise-image > img {
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+
+footer > p {
+  margin: 0;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.25px;
 }
