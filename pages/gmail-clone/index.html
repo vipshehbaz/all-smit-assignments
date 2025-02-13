@@ -1,127 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gmail Clone</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .sidebar {
-            height: 100vh;
-            background-color: #f5f5f5;
-            padding-top: 20px;
-        }
-        .sidebar .btn-danger {
-            border-radius: 20px;
-            font-weight: bold;
-        }
-        .nav-link {
-            color: #202124;
-            font-weight: 500;
-        }
-        .nav-link:hover {
-            background-color: #e8e8e8;
-            border-radius: 5px;
-        }
-        .email-list {
-            height: 100vh;
-            overflow-y: auto;
-            background-color: #fff;
-        }
-        .list-group-item {
-            cursor: pointer;
-            border: none;
-            border-bottom: 1px solid #ddd;
-            padding: 15px;
-        }
-        .list-group-item:hover {
-            background-color: #f1f3f4;
-        }
-        .email-preview {
-            height: 100vh;
-            overflow-y: auto;
-        }
-        .search-bar {
-            background-color: #f1f3f4;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .tab-bar {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            border-bottom: 2px solid #ddd;
-            background-color: #fff;
-        }
-        .tab-bar .tab {
-            padding: 8px 15px;
-            font-weight: bold;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-        .tab-bar .tab.active {
-            background-color: #e8f0fe;
-            color: #1a73e8;
-        }
-    </style>
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <nav class="col-md-2 sidebar d-flex flex-column">
-                <button class="btn btn-danger w-75 mx-auto mb-3">Compose</button>
-                <ul class="nav flex-column px-3">
-                    <li class="nav-item"><a class="nav-link active" href="#">Inbox</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Starred</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Sent</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Drafts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">More</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Email List -->
-            <main class="col-md-4 email-list p-3">
-                <div class="search-bar">
-                    <input type="text" class="form-control" placeholder="Search mail">
-                </div>
-                <div class="tab-bar">
-                    <span class="tab active">Primary</span>
-                    <span class="tab">Promotions</span>
-                    <span class="tab">Social</span>
-                </div>
-                <ul class="list-group mt-2">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
-                            <strong>John Doe</strong> <br>
-                            <small>Meeting at 3 PM</small>
-                        </div>
-                        <span class="text-muted">4:01 PM</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
-                            <strong>Company</strong> <br>
-                            <small>Your Invoice</small>
-                        </div>
-                        <span class="text-muted">11:51 AM</span>
-                    </li>
-                </ul>
-            </main>
-            
-            <!-- Email Preview -->
-            <section class="col-md-6 email-preview p-3">
-                <h5>Email Preview</h5>
-                <div class="border p-3 rounded">
-                    <h6>Subject: Meeting at 3 PM</h6>
-                    <p><strong>From:</strong> John Doe</p>
-                    <p>Hey, let's meet at 3 PM to discuss the project updates. Let me know if that works for you.</p>
-                </div>
-            </section>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    header {
+      background-color: #4285f4;
+      color: white;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    header input {
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .sidebar li:hover {
+      background-color: #f1f1f1;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 10px;
+      display: flex;
+    }
+
+    .email-list {
+      width: 50%;
+      padding-right: 10px;
+    }
+
+    .email-item {
+      background-color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .email-item:hover {
+      background-color: #f9f9f9;
+    }
+
+    .email-view {
+      width: 50%;
+      padding: 10px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Gmail Clone</h1>
+        <input type="text" placeholder="Search mail" id="search" />
+      </header>
+      <div class="sidebar">
+        <button class="compose">Compose</button>
+        <ul class="folders">
+          <li>Inbox</li>
+          <li>Sent</li>
+          <li>Drafts</li>
+          <li>Spam</li>
+        </ul>
+      </div>
+      <main>
+        <div class="email-list">
+          <div
+            class="email-item"
+            onclick="openEmail('Email 1', 'This is the content of Email 1')"
+          >
+            <h3>Email 1</h3>
+            <p>This is a preview of Email 1</p>
+          </div>
+          <div
+            class="email-item"
+            onclick="openEmail('Email 2', 'This is the content of Email 2')"
+          >
+            <h3>Email 2</h3>
+            <p>This is a preview of Email 2</p>
+          </div>
+          <div
+            class="email-item"
+            onclick="openEmail('Email 3', 'This is the content of Email 3')"
+          >
+            <h3>Email 3</h3>
+            <p>This is a preview of Email 3</p>
+          </div>
         </div>
+        <div class="email-view" id="email-view">
+          <h2 id="email-title"></h2>
+          <p id="email-content"></p>
+        </div>
+      </main>
     </div>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
