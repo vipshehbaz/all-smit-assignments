@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gmail Clone</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row vh-100">
+        <!-- Sidebar -->
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar py-4">
+          <div class="position-sticky">
+            <button class="btn btn-danger w-100 mb-3">Compose</button>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Inbox</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Sent</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Drafts</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Trash</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Email List -->
+        <main class="col-md-4 bg-white border-end py-3">
+          <h5 class="px-3">Inbox</h5>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>John Doe</strong> - Meeting at 3 PM
+            </li>
+            <li class="list-group-item">
+              <strong>Company</strong> - Your Invoice
+            </li>
+            <li class="list-group-item">
+              <strong>Jane Smith</strong> - Project Update
+            </li>
+          </ul>
+        </main>
+
+        <!-- Email Preview -->
+        <section class="col-md-6 py-3">
+          <h5>Email Preview</h5>
+          <div class="border p-3">
+            <h6>Subject: Meeting at 3 PM</h6>
+            <p><strong>From:</strong> John Doe</p>
+            <p>
+              Hey, let's meet at 3 PM to discuss the project updates. Let me
+              know if that works for you.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
