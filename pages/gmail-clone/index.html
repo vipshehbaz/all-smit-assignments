@@ -5,112 +5,250 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gmail Clone</title>
     <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f6f8fc;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+        background-color: #ffffff;
+        border-bottom: 1px solid #ddd;
+        padding: 8px 16px;
+      }
+      .navbar img {
+        height: 40px;
+      }
+      .navbar .profile-pic {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-left: 16px;
+      }
+      .sidebar {
+        width: 240px;
+        background-color: #ffffff;
+        height: calc(100vh - 56px);
+        border-right: 1px solid #ddd;
+        padding: 16px;
+      }
+      .sidebar .compose-btn {
+        background-color: #c2e7ff;
+        color: #001d35;
+        border: none;
+        border-radius: 16px;
+        padding: 12px 24px;
+        font-weight: 500;
+        margin-bottom: 16px;
+        cursor: pointer;
+      }
+      .sidebar .compose-btn:hover {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .sidebar ul li {
+        padding: 8px 16px;
+        border-radius: 16px;
+        margin-bottom: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+      .sidebar ul li:hover {
+        background-color: #f1f3f4;
+      }
+      .sidebar ul li i {
+        margin-right: 16px;
+        width: 20px;
+        text-align: center;
+      }
+      .email-list {
+        flex: 1;
+        background-color: #ffffff;
+        padding: 16px;
+      }
+      .email-list .email-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+      }
+      .email-list .email-item:hover {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      .email-list .email-item .sender {
+        font-weight: bold;
+        margin-right: 16px;
+      }
+      .email-list .email-item .subject {
+        flex: 1;
+        color: #202124;
+      }
+      .email-list .email-item .time {
+        color: #5f6368;
+        font-size: 14px;
+      }
+      .categories {
+        display: flex;
+        border-bottom: 1px solid #ddd;
+        padding: 8px 16px;
+        background-color: #ffffff;
+      }
+      .categories .category {
+        padding: 8px 16px;
+        margin-right: 8px;
+        cursor: pointer;
+        border-radius: 16px;
+      }
+      .categories .category:hover {
+        background-color: #f1f3f4;
+      }
+      .categories .category.active {
+        background-color: #d3e3fd;
+        color: #001d35;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 100%;
+          height: auto;
+          border-right: none;
+          border-bottom: 1px solid #ddd;
+        }
+        .sidebar ul {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .sidebar ul li {
+          padding: 8px 12px;
+        }
+        .email-list {
+          padding: 8px;
+        }
+        .categories {
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .categories .category {
+          padding: 8px 12px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .navbar img {
+          height: 30px;
+        }
+        .navbar .profile-pic {
+          width: 24px;
+          height: 24px;
+        }
+        .sidebar .compose-btn {
+          padding: 8px 16px;
+        }
+        .sidebar ul li {
+          padding: 6px 10px;
+        }
+        .email-list .email-item {
+          padding: 8px 12px;
+        }
+        .email-list .email-item .sender,
+        .email-list .email-item .subject,
+        .email-list .email-item .time {
+          font-size: 14px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-        <img
-          src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r2.png"
-          alt="Gmail"
-          height="30"
-        />
-      </a>
-      <form class="form-inline my-2 my-lg-0 ml-auto">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search mail"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-cog"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-question-circle"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-user-circle"></i></a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-2 bg-light sidebar">
-          <button class="btn btn-danger btn-block my-3">Compose</button>
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="#"
-                ><i class="fa fa-inbox"></i> Inbox</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"
-                ><i class="fa fa-star"></i> Starred</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"
-                ><i class="fa fa-paper-plane"></i> Sent</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-file"></i> Drafts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-trash"></i> Trash</a>
-            </li>
-          </ul>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html">
+          <img
+            src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_48dp.png"
+            alt="Gmail Logo"
+          />
+        </a>
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search mail"
+            aria-label="Search"
+          />
+        </form>
+        <div class="d-flex align-items-center">
+          <i class="fas fa-cog" style="font-size: 20px; cursor: pointer"></i>
+          <img
+            src="/assets/images/1.jpg"
+            alt="Profile Picture"
+            class="profile-pic"
+          />
         </div>
-
-        <div class="col-md-10 offset-md-2">
-          <div class="card mt-3">
-            <div class="card-header">Inbox</div>
-            <div class="card-body">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">Sender</th>
-                    <th scope="col">Subject</th>
-                    <th scope="col">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>John Doe</td>
-                    <td>Hello World</td>
-                    <td>Feb 13, 2025</td>
-                  </tr>
-                  <tr>
-                    <td>Jane Smith</td>
-                    <td>Meeting Reminder</td>
-                    <td>Feb 12, 2025</td>
-                  </tr>
-                  <tr>
-                    <td>Bob Johnson</td>
-                    <td>Project Update</td>
-                    <td>Feb 11, 2025</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+      </div>
+    </nav>
+    <div class="d-flex flex-column flex-md-row">
+      <div class="sidebar">
+        <button class="compose-btn w-100">Compose</button>
+        <ul>
+          <li><i class="fas fa-inbox"></i>Inbox</li>
+          <li><i class="fas fa-star"></i>Starred</li>
+          <li><i class="fas fa-clock"></i>Snoozed</li>
+          <li><i class="fas fa-paper-plane"></i>Sent</li>
+          <li><i class="fas fa-file-alt"></i>Drafts</li>
+        </ul>
+      </div>
+      <div class="email-list">
+        <div class="categories">
+          <div class="category active">Primary</div>
+          <div class="category">Social</div>
+          <div class="category">Promotions</div>
+        </div>
+        <div class="email-item">
+          <div class="sender">Kashif</div>
+          <div class="subject">Meeting Reminder</div>
+          <div class="time">10:00 AM</div>
+        </div>
+        <div class="email-item">
+          <div class="sender">Kashif</div>
+          <div class="subject">Meeting Reminder</div>
+          <div class="time">10:00 AM</div>
+        </div>
+        <div class="email-item">
+          <div class="sender">Kashif</div>
+          <div class="subject">Meeting Reminder</div>
+          <div class="time">10:00 AM</div>
+        </div>
+        <div class="email-item">
+          <div class="sender">Kashif</div>
+          <div class="subject">Meeting Reminder</div>
+          <div class="time">10:00 AM</div>
+        </div>
+        <div class="email-item">
+          <div class="sender">Kashif</div>
+          <div class="subject">Meeting Reminder</div>
+          <div class="time">10:00 AM</div>
+        </div>
+        <div class="email-item">
+          <div class="sender">Kashif</div>
+          <div class="subject">Meeting Reminder</div>
+          <div class="time">10:00 AM</div>
         </div>
       </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </body>
 </html>
