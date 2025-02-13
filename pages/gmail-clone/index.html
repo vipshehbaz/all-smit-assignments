@@ -146,6 +146,113 @@
         </div>
       </main>
     </div>
-    <script src="script.js"></script>
+    <script>
+              function openEmail(title, content) {
+          document .getElementById('email-title').innerText = title;
+          document.getElementById('email-content').innerText = content;
+      } javascript
+      // Additional functionality to handle the compose button
+      document.querySelector('.compose').addEventListener('click', function() {
+          const title = prompt("Enter email title:");
+          const content = prompt("Enter email content:");
+          if (title && content) {
+              const emailList = document.querySelector('.email-list');
+              const newEmailItem = document.createElement('div');
+              newEmailItem.className = 'email-item';
+              newEmailItem.onclick = function() {
+                  openEmail(title, content);
+              };
+              newEmailItem.innerHTML = `<h3>${title}</h3><p>${content.substring(0, 30)}...</p>`;
+              emailList.appendChild(newEmailItem);
+          }
+      });
+       javascript
+      // Additional functionality to handle the search feature
+      document.getElementById('search').addEventListener('input', function() {
+          const query = this.value.toLowerCase();
+          const emailItems = document.querySelectorAll('.email-item');
+          emailItems.forEach(item => {
+              const title = item.querySelector('h3').innerText.toLowerCase();
+              const preview = item.querySelector('p').innerText.toLowerCase();
+              if (title.includes(query) || preview.includes(query)) {
+                  item.style.display = 'block';
+              } else {
+                  item.style.display = 'none';
+              }
+          });
+      });
+       javascript
+      // Additional functionality to handle the folder navigation
+      const folderItems = document.querySelectorAll('.folders li');
+      folderItems.forEach(folder => {
+          folder.addEventListener('click', function() {
+              const folderName = this.innerText;
+              alert(`You clicked on ${folderName}`);
+              // Here you can add functionality to filter emails based on the folder selected
+          });
+      });
+       javascript
+      // Additional functionality to handle email deletion
+      document.addEventListener('click', function(event) {
+          if (event.target.classList.contains('email-item')) {
+              const confirmDelete = confirm("Do you want to delete this email?");
+              if (confirmDelete) {
+                  event.target.remove();
+                  document.getElementById('email-title').innerText = '';
+                  document.getElementById('email-content').innerText = '';
+              }
+          }
+      });
+
+      // Functionality to mark emails as read
+      const emailItems = document.querySelectorAll('.email-item');
+      emailItems.forEach(item => {
+          item.addEventListener('click', function() {
+              this.style.backgroundColor = '#e0e0e0'; // Change background to indicate read status
+          });
+      });
+
+      function saveEmails() {
+          const emailItems = document.querySelectorAll('.email-item');
+          const emails = [];
+          emailItems.forEach(item => {
+              const title = item.querySelector('h3').innerText;
+              const content = item.querySelector('p').innerText;
+              emails.push({ title, content });
+          });
+          localStorage.setItem('emails', JSON.stringify(emails));
+      }
+
+      // Load emails from local storage on page load
+      window.onload = function() {
+          const savedEmails = JSON.parse(localStorage.getItem('emails'));
+          if (savedEmails) {
+              savedEmails.forEach(email => {
+                  const emailList = document.querySelector('.email-list');
+                  const newEmailItem = document.createElement('div');
+                  newEmailItem.className = 'email-item';
+                  newEmailItem.onclick = function() {
+                      openEmail(email.title, email.content);
+                  };
+                  newEmailItem.innerHTML = <h3>${email.title}</h3><p>${email.content.substring(0, 30)}...</p>;
+                  emailList.appendChild(newEmailItem);
+              });
+          }
+      };
+
+      // Save emails whenever a new email is added or deleted
+      document.querySelector('.compose').addEventListener('click', saveEmails);
+      document.addEventListener('click', function(event) {
+          if (event.target.classList.contains('email-item')) {
+              const confirmDelete = confirm("Do you want to delete this email?");
+              if (confirmDelete) {
+                  event.target.remove();
+                  saveEmails();
+                  document.getElementById('email-title').innerText = '';
+                  document.getElementById('email-content').innerText = '';
+              }
+          }
+      });
+    </script>
   </body>
 </html>
