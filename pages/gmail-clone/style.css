@@ -1,33 +1,45 @@
 body {
-    font-family: Arial, sans-serif;
-  }
-  
-  .navbar {
-    margin-bottom: 0;
-  }
-  
-  .sidebar {
-    height: 100vh;
-    position: fixed;
-    top: 56px;
-    left: 0;
-    padding: 20px;
-    border-right: 1px solid #ddd;
-  }
-  
-  .sidebar .nav-link {
-    color: #333;
-  }
-  
-  .sidebar .nav-link.active {
-    font-weight: bold;
-    color: #d9534f;
-  }
-  
-  .card {
-    margin-left: 17%;
-  }
-  
-  .table-hover tbody tr:hover {
-    background-color: #f5f5f5;
-  }
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar .nav-link {
+  color: #333;
+}
+
+.sidebar .nav-link.active {
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.card {
+  margin-left: 17%;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.navbar .form-inline .form-control {
+  width: 300px;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: #555;
+}
+
+.navbar .navbar-nav .nav-link i {
+  font-size: 1.2em;
+}
