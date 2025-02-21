@@ -1,19 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Saira+Stencil+One&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
+  background-color: #000;
+  color: white;
 }
 
 .wrapper {
-  width: 1200px;
+  max-width: 1380px;
   margin: auto;
+  background-color: transparent;
+  width: 90%;
 }
 
 nav {
-  width: 100vw;
+  width: calc(100vw - 17px);
   height: 92px;
   background: #000;
 }
@@ -29,17 +33,313 @@ nav {
   gap: 40px;
 }
 
+.nav-items-wrapper li {
+  list-style: none;
+}
+
 .nav-items-wrapper li a {
   color: white;
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
+  padding: 10px;
 }
 
 .logo img {
   width: 200px;
 }
 
-.bordered{
-    border: 1px solid white;
+.bordered {
+  border: 1px solid white;
+  border-radius: 20px;
+  font-size: 14px !important;
+  padding: 12px !important;
+}
+
+.btn {
+  background-color: red;
+  border-radius: 20px;
+  font-size: 14px !important;
+  padding: 12px !important;
+}
+
+.arrow-icon {
+  padding: 6px 8px;
+  border-radius: 999px;
+  margin-left: 5px;
+  background-color: white;
+}
+
+.arrow-icon i {
+  background-color: white;
+  color: red;
+}
+
+main img {
+  width: calc(100vw - 17px);
+}
+
+.brands {
+  padding: 70px 0px;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 50px;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 8px;
+  background: transparent;
+}
+
+h2 > span {
+  font-family: "Saira Stencil One", serif;
+  font-size: 52px;
+  line-height: 62px;
+  background-color: transparent;
+}
+
+p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 48px;
+  text-align: center;
+  background-color: transparent;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
+  scrollbar-width: none;
+  z-index: 2;
+  gap: 30px;
+}
+
+.cards-container > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-container > div > img {
+  background-color: white;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+div > button {
+  width: 174px;
+  height: 50px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 50px;
+  margin: auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+}
+
+.restaurant-franchises {
+  background-color: rgba(255, 255, 255, 0.06);
+  padding: 70px;
+  position: relative;
+}
+
+.franchises-container {
+  display: flex;
+  gap: 30px;
+  background-color: transparent;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.restaurant-franchises > h2 {
+  position: absolute;
+  top: 300px;
+  right: 0px;
+  text-align: right;
+  z-index: 1;
+}
+
+.restaurant-franchises > h2 > span {
+  font-size: 800px;
+  opacity: 0.05;
+  display: block;
+}
+
+.franchise-info {
+  background-color: transparent;
+  width: 50%;
+}
+
+.franchise-info > p {
+  margin: 0;
+  text-align: left;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #ed1c24;
+  letter-spacing: 0.48em;
+}
+
+.franchise-info > h2 {
+  width: 100%;
+  text-align: left;
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+
+.franchise-info > h2 > span {
+  font-size: 32px;
+}
+
+.franchise-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: transparent;
+}
+
+.franchise-contact-info > p {
+  text-align: left;
+  margin: 0;
+}
+
+.franchise-contact-info > button {
+  margin: 0;
+  margin-top: 38px;
+  background-color: transparent;
+}
+
+.franchise-image {
+  background-color: transparent;
+  width: 50%;
+}
+
+.franchise-image > img {
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+
+footer > p {
+  margin: 0;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.25px;
+}
+
+.mobile{
+  display: none;
+}
+
+.desktop{
+  display: flex;
+}
+
+@media screen and (max-width: 1018px) {
+
+  nav {
+    height: 60px;
+  }
+
+  .nav-items-wrapper {
+    display: none;
+  }
+
+  .nav-inner {
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo img {
+    width: 100px;
+  }
+
+  main > img{
+    width: 100%;
+  }
+
+  .franchises-container {
+    flex-direction: column;
+  }
+
+  .franchise-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .franchise-info > h2{
+    text-align: center;
+  }
+
+  .franchise-contact-info{
+    align-items: center;
+  }
+
+  .franchise-contact-info > p{
+    text-align: center;
+  }
+
+  .franchise-contact-info > button{
+    margin-top: 14px;
+  }
+
+  .franchise-image {
+    width: 100%;
+  }
+
+  h2 > span,
+  h2 {
+    font-size: 24px !important;
+    line-height: 29px;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .restaurant-franchises{
+    padding: 35px 0px;
+  }
+
+  .franchise-info >p{
+    margin-bottom: 12px;
+  }
+
+  .franchise-info >h2{
+    margin-bottom: 24px;
+  }
+
+  .desktop{
+    display: none;
+  }
+
+  .mobile{
+    display: flex;
+  }
 }
