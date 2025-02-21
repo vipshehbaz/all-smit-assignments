@@ -11,9 +11,22 @@
       crossorigin="anonymous"
     />
   </head>
+  <style>
+    nav {
+      position: fixed !important;
+      top: 0;
+      width: 100%;
+      z-index: 100000;
+      padding: 0px 10px !important;
+    }
+
+    .wrapper {
+      margin-top: 100px;
+    }
+  </style>
   <body>
-    <div class="mx-2">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed top-0">
+    <div class="nav-container">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"
             ><img src="image/logo_syalani.png " height="60vh"
@@ -118,7 +131,7 @@
         </div>
       </nav>
     </div>
-    <div class="row m-auto">
+    <div class="row wrapper">
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 px-4">
         <h1>Welcome to the saylani welfare</h1>
         <h2>The Largest NGO offering monthly family supoort</h2>
