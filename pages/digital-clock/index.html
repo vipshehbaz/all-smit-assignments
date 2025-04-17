@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Clock</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="w-screen h-screen flex justify-center items-center relative">
+      <h2 class="absolute top-10 left-10">
+        <a class="underline" href="/index.html">Back</a>
+      </h2>
+      <div
+        class="w-[450px] h-[200px] border rounded-2xl overflow-hidden p-3 bg-orange-900 clock"
+      >
+        <div
+          class="w-full h-full rounded-2xl text-[135px] leading-none flex justify-between items-center bg-black text-red-600 p-5"
+        >
+          <p class="h-[-webkit-fill-available]" id="hour">00</p>
+          <p>:</p>
+          <p class="h-[-webkit-fill-available]" id="minutes">00</p>
+
+          <p>:</p>
+          <p class="h-[-webkit-fill-available]" id="seconds">00</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      function Time() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const hourEle = document.getElementById("hour");
+        const minutesEle = document.getElementById("minutes");
+        const secondsEle = document.getElementById("seconds");
+        hourEle.innerHTML = hours;
+        minutesEle.innerHTML = minutes;
+        secondsEle.innerHTML = seconds;
+      }
+
+      setInterval(() => {
+        Time();
+      });
+    </script>
+  </body>
+</html>
