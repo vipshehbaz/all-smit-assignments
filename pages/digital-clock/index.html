@@ -13,17 +13,16 @@
         <a class="underline" href="/index.html">Back</a>
       </h2>
       <div
-        class="w-[450px] h-[200px] border rounded-2xl overflow-hidden p-3 bg-orange-900 clock"
+        class="w-[450px] h-[150px] border rounded-2xl overflow-hidden p-3 bg-orange-900 clock"
       >
         <div
-          class="w-full h-full rounded-2xl text-[135px] leading-none flex justify-between items-center bg-black text-red-600 p-5"
+          class="w-full h-full rounded-2xl text-[135px] leading-none grid grid-flow-col grid-cols-3 bg-black text-red-600 relative"
         >
-          <p class="h-[-webkit-fill-available]" id="hour">00</p>
-          <p>:</p>
-          <p class="h-[-webkit-fill-available]" id="minutes">00</p>
-
-          <p>:</p>
-          <p class="h-[-webkit-fill-available]" id="seconds">00</p>
+          <p class="absolute left-3 top-[-5px]" id="hour">88</p>
+          <p class="absolute left-[133px] top-[-5px] dot">:</p>
+          <p class="absolute left-[35%] top-[-5px]" id="minutes">88</p>
+          <p class="absolute left-[269px] top-[-5px] dot">:</p>
+          <p class="absolute right-3 top-[-5px]" id="seconds">88</p>
         </div>
       </div>
     </div>
