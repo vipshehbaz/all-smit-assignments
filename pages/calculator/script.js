@@ -2,7 +2,6 @@ let input = document.getElementById("inputBox");
 let buttons = document.querySelectorAll("button");
 let body = document.getElementById("body");
 body.addEventListener("keydown", (e) => {
-  console.log(e);
   if (e.key === "Backspace") {
     return;
   }
@@ -12,8 +11,12 @@ body.addEventListener("keydown", (e) => {
     e.code === "ArrowLeft" ||
     e.code === "ArrowRight"
   ) {
-    check = eval(input.value);
-    input.value = check;
+    if (input.value) {
+      check = eval(input.value);
+      input.value = check;
+    } else {
+      alert("please Enter Number");
+    }
   }
   const validKeys = /^[0-9+\-*/.]$/;
   if (!validKeys.test(event.key)) {
@@ -27,8 +30,12 @@ function calc() {
   arr.forEach((button) => {
     button.addEventListener("click", (e) => {
       if (e.target.innerHTML == "=") {
-        string = eval(string);
-        input.value = string;
+        if (input.value) {
+          check = eval(input.value);
+          input.value = check;
+        } else {
+          alert("please Enter Number");
+        }
       } else if (e.target.innerHTML == "AC") {
         string = "";
         input.value = string;

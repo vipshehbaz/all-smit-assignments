@@ -14,9 +14,12 @@
     }
 
     div {
-      width: 100vw;
+      max-width: 1380px;
+      width: 90%;
+      margin: auto;
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
       gap: 20px;
     }
@@ -25,23 +28,94 @@
       text-align: center;
       margin: 50px 0;
     }
+
+    a {
+      width: 250px;
+      height: 250px;
+      border-radius: 12px;
+      box-shadow: 0px 3px 15px rgba(84, 84, 84, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.2s ease-in-out;
+    }
+
+    a:hover {
+      box-shadow: 0px 3px 15px rgba(84, 84, 84, 0.2);
+    }
   </style>
   <body>
     <h2>All SMIT Assignemnts</h2>
-    <div>
-      <a href="pages/resume.html">Resume</a>
-      <a href="pages/A to Z Book/index.html">A TO Z Book</a>
-      <a href="pages/galary.html">Gallery</a
-      ><a href="pages/registration-from.html">Registration Form</a
-      ><a href="pages/priodic-table.html">Priodic Table</a>
-      <a href="pages/photos-gallery/photos-gallery.html">Photos Gallery</a>
-      <a href="pages/color-plate/index.html">Color Plate</a>
-      <a href="pages/solt-paper-clone/index.html">Salt Paper Clone</a>
-      <a href="pages/gmail-clone/index.html">Gmail Clone Bootstrap</a>
-      <a href="pages/saylani-clone/index.html">Saylani Clone Bootstrap</a>
-      <a href="pages/calculator/index.html">Calculator</a>
-      <a href="pages/digital-clock/index.html">Digital Clock</a>
-      <a href="pages/user-data/index.html">Users Data</a>
-    </div>
+    <div></div>
   </body>
+  <script>
+    const data = [
+      {
+        name: "Resume",
+        link: "pages/resume.html",
+      },
+      {
+        name: "A TO Z Book",
+        link: "pages/A to Z Book/index.html",
+      },
+      {
+        name: "Gallery",
+        link: "pages/galary.html",
+      },
+      {
+        name: "Registration Form",
+        link: "pages/registration-from.html",
+      },
+      {
+        name: "Priodic Table",
+        link: "pages/priodic-table.html",
+      },
+      {
+        name: "Photos Gallery",
+        link: "pages/photos-gallery/photos-gallery.html",
+      },
+      {
+        name: "Color Plate",
+        link: "pages/color-plate/index.html",
+      },
+      {
+        name: "Salt Paper Clone",
+        link: "pages/solt-paper-clone/index.html",
+      },
+      {
+        name: "Gmail Clone Bootstrap",
+        link: "pages/gmail-clone/index.html",
+      },
+      {
+        name: "Saylani Clone Bootstrap",
+        link: "pages/saylani-clone/index.html",
+      },
+      {
+        name: "Calculator",
+        link: "pages/calculator/index.html",
+      },
+      {
+        name: "Digital Clock",
+        link: "pages/digital-clock/index.html",
+      },
+      {
+        name: "Users Data",
+        link: "pages/user-data/index.html",
+      },
+      {
+        name: "Todo List",
+        link: "pages/todo-list/index.html",
+      },
+      {
+        name: "Fetch User Data Using API",
+        link: "pages/fetch-user-data/index.html",
+      },
+    ];
+
+    let container = document.querySelector("div");
+    for (let index = 0; index < data.length; index++) {
+      let tag = `<a href="${data[index].link}">${data[index].name}</a>`;
+      container.innerHTML += tag;
+    }
+  </script>
 </html>
