@@ -302,17 +302,25 @@
         const productHTML = `
           <div class="product-container">
             <div class="product-images">
-              <img src="${product.images[0]}" alt="${product.title}" class="main-image" id="mainImage">
+              <img src="${product.images[0]}" alt="${
+          product.title
+        }" class="main-image" id="mainImage">
             </div>
             <div class="product-info">
-              ${product.brand ? `<span class="brand">${product.brand}</span>` : ""}
+              ${
+                product.brand
+                  ? `<span class="brand">${product.brand}</span>`
+                  : ""
+              }
               <h1 class="title">${product.title}</h1>
               <p class="description">${product.description}</p>
               <div class="rating">${product.rating.toFixed(1)}</div>
               <div class="price-container">
                 <span class="original-price">$${product.price.toFixed(2)}</span>
                 <span class="discounted-price">$${newPrice.toFixed(2)}</span>
-                <span class="discount-badge">${product.discountPercentage}% OFF</span>
+                <span class="discount-badge">${
+                  product.discountPercentage
+                }% OFF</span>
               </div>
               <div class="product-meta">
                 <div class="meta-item">
@@ -329,7 +337,9 @@
                 </div>
               </div>
               <div class="tags">
-                ${product.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
+                ${product.tags
+                  .map((tag) => `<span class="tag">${tag}</span>`)
+                  .join("")}
               </div>
             </div>
           </div>
@@ -346,10 +356,12 @@
 
       function displayReviews(reviews) {
         if (!reviews || reviews.length === 0) {
-          return '<p>No reviews available for this product.</p>';
+          return "<p>No reviews available for this product.</p>";
         }
 
-        return reviews.map(review => `
+        return reviews
+          .map(
+            (review) => `
           <div class="review-card">
             <div class="review-header">
               <span class="reviewer-name">${review.reviewerName}</span>
@@ -358,7 +370,9 @@
             <div class="review-rating">${generateStars(review.rating)}</div>
             <p class="review-comment">${review.comment}</p>
           </div>
-        `).join('');
+        `
+          )
+          .join("");
       }
 
       function changeMainImage(imageUrl) {
@@ -380,8 +394,9 @@
             displayProductDetails(product);
           })
           .catch((error) => {
-            document.getElementById("productDetails").innerHTML = 
-              `<p>Error: ${error.message}</p>`;
+            document.getElementById(
+              "productDetails"
+            ).innerHTML = `<p>Error: ${error.message}</p>`;
           });
       } else {
         document.getElementById("productDetails").innerHTML =
