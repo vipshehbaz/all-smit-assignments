@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game | SMIT</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      background-color: grey;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .obstacle-container {
+      position: absolute;
+      bottom: 0px;
+      background-color: grey;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: baseline;
+      animation: moveObstacle 3s linear infinite;
+    }
+
+    @keyframes moveObstacle {
+      0% {
+        transform: translate(1000px);
+      }
+
+      100% {
+        transform: translate(-1000px);
+      }
+    }
+
+    .obstacle {
+      width: 10px;
+      background-color: black;
+    }
+
+    .player {
+      position: absolute;
+      bottom: 0px;
+      left: 101px;
+      height: 100px;
+      width: 100px;
+      background-color: red;
+      transition: all ease-in-out 0.1s;
+    }
+
+    p {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 28px;
+    }
+  </style>
+  <body>
+    <p></p>
+    <div class="obstacle-container"></div>
+    <div class="player"></div>
+    <script>
+      let body = document.querySelector("body");
+      let obstacleContainer = document.querySelector(".obstacle-container");
+      let player = document.querySelector(".player");
+      let p = document.querySelector("p");
+      let obstacle;
+      let score = 0;
+      i = 0;
+
+      body.addEventListener("keydown", (e) => {
+        if (e.key === " ") {
+          player.style.bottom = "200px";
+          setTimeout(() => {
+            player.style.bottom = "0px";
+          }, 400);
+        }
+      });
+
+      while (i < 2) {
+        i++;
+        obstacle = document.createElement("div");
+        obstacle.classList.add("obstacle");
+        let randomNumber = parseInt(Math.random() * 100 + 80);
+        console.log(randomNumber);
+        obstacle.style.height = `${randomNumber}px`;
+        obstacleContainer.appendChild(obstacle);
+      }
+
+      function scoreIncrease() {
+        score += 10;
+      }
+
+      const scoreCounter = setInterval(() => {
+        scoreIncrease();
+        p.innerText = `Score : ${score}`;
+      }, 1000);
+
+      function chckGmeOvr() {
+        const playerRect = player.getBoundingClientRect();
+        const obstacleRect = obstacle.getBoundingClientRect();
+
+        const isColliding = !(
+          playerRect.top > obstacleRect.bottom ||
+          playerRect.bottom < obstacleRect.top ||
+          playerRect.right < obstacleRect.left ||
+          playerRect.left > obstacleRect.right
+        );
+
+        if (isColliding) {
+          console.log("Game Over!");
+          clearInterval(gameLoop);
+          clearInterval(scoreCounter);
+        }
+      }
+
+      const gameLoop = setInterval(() => {
+        chckGmeOvr();
+      }, 50);
+    </script>
+  </body>
+</html>
